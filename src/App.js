@@ -140,7 +140,7 @@ const App = () => {
     return (
         <div className="App">
             <div className="container">
-                <h1 className="header">Settings Generator</h1>
+                <h2 className="header">Settings Generator</h2>
                 <small>For NVflare SSR CSV</small>
                 <div style={{position: 'relative'}}>
                   <label
@@ -240,7 +240,7 @@ const App = () => {
                   ><ContentCopyIcon style={{color: 'white', background: '#444'}} /></button>}
                   <TextareaAutosize
                     style={{ 
-                      background: '#333',
+                      background: '#1A2948',
                       fontSize: '1rem', 
                       marginTop: '1rem', 
                       color: 'white',
