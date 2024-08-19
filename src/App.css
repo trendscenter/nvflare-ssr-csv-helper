@@ -1,38 +1,73 @@
+/* Filename - App.css */
+
+body {
+  font-family: "Lato", sans-serif;
+  background: #EFEFF0;
+  margin: 1rem 0;
+}
+
 .App {
+  margin: 0 auto;
   text-align: center;
+  width: 300px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.header {
+  font-family: "Lato", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  color: #0066FF;
+  margin: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+small {
+  margin-bottom: 1rem;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.container {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  width: 300px;
+  margin: 2% auto;
+  border-radius: 1rem;
+  padding: 1rem;
+  background: white;
 }
 
-.App-link {
-  color: #61dafb;
+.item {
+  width: 200px;
+  margin: 0 auto;
+  padding: 2px;
+  border-radius: 10px;
+  text-align: left;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+label {
+  display: inline-block;
+  width: auto;
+  border-radius: 5px;
+  background-color: lightgrey;
+  color: #222;
+  font-size: larger;
+  margin: auto;
+  padding: 1rem;
+}
+
+label b {
+  color: #0066FF;
+}
+
+button {
+  width: 100%;
+}
+
+label:hover,
+button:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+#csvInputCov,
+#csvInputData {
+  display: none;
 }
