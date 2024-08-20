@@ -8,6 +8,7 @@ body {
 .App {
   margin: 0 auto;
   text-align: center;
+  width: 400px;
 }
 
 .header {
