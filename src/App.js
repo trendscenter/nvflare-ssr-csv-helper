@@ -140,117 +140,125 @@ const App = () => {
     return (
         <div className="App">
             <div className="container">
-                <h2 className="header">Settings Generator</h2>
+              <div className="header">
+                <h2>Settings Generator</h2>
                 <small>For NVflare SSR CSV</small>
-                <div style={{position: 'relative'}}>
-                  <label
-                      htmlFor="csvInputCov"
-                      style={{ display: "block" }}
-                  >
-                      Select <b>covariates.csv</b> File
-                  </label>
-                  <input
-                      onChange={(e) => { handleFileChange(e, 'covariates.csv') }}
-                      id="csvInputCov"
-                      name="file"
-                      type="File"
-                  />
-                  {covFile && <div style={{
-                    fontSize: '2rem',
-                    position: 'absolute', 
-                    top: '-1rem', 
-                    right: '-0.5rem'
-                  }}>
-                    <CheckCircleIcon style={{color: '#2FB600', background:'white', borderRadius: '50%'}} />
-                  </div>}
+              </div>
+                <div>
+                  <section>
+                    <div style={{position: 'relative', marginTop: '0'}}>
+                      <label
+                          htmlFor="csvInputCov"
+                          style={{ display: "block" }}
+                      >
+                          Select <b>covariates.csv</b> File
+                      </label>
+                      <input
+                          onChange={(e) => { handleFileChange(e, 'covariates.csv') }}
+                          id="csvInputCov"
+                          name="file"
+                          type="File"
+                      />
+                      {covFile && <div style={{
+                        fontSize: '2rem',
+                        position: 'absolute', 
+                        top: '-1rem', 
+                        right: '-0.5rem'
+                      }}>
+                        <CheckCircleIcon style={{color: '#2FB600', background:'white', borderRadius: '50%'}} />
+                      </div>}
+                    </div>
+                    {covFile && <div style={{marginTop: '1rem'}}>
+                        <button 
+                          onClick={() => handleParseCov(covFile)}
+                          style={{
+                            background: '#2FB600', 
+                            border: 'none', 
+                            padding: '0.5rem 1rem', 
+                            borderRadius: '1rem', 
+                            color: 'white'
+                          }}
+                        >
+                        Parse Covariates File
+                        </button>
+                    </div>}
+                    <div style={{position: 'relative', marginTop: '1rem'}}>
+                      <label
+                          htmlFor="csvInputData"
+                          style={{ display: "block" }}
+                      >
+                          Select <b>data.csv</b> File
+                      </label>
+                      <input
+                          onChange={(e) => { handleFileChange(e, 'data.csv') }}
+                          id="csvInputData"
+                          name="file"
+                          type="File"
+                      />
+                      {dataFile && <div style={{
+                        fontSize: '2rem',
+                        position: 'absolute', 
+                        top: '-1rem', 
+                        right: '-0.5rem'
+                      }}>
+                        <CheckCircleIcon style={{color: '#2FB600', background:'white', borderRadius: '50%'}} />
+                      </div>}
+                    </div>
+                    {dataFile && <div style={{marginTop: '1rem'}}>
+                        <button 
+                          onClick={() => handleParseData(dataFile)}
+                          style={{
+                            background: '#2FB600',
+                            border: 'none',
+                            padding: '0.5rem 1rem',
+                            borderRadius: '1rem', 
+                            color: 'white'
+                          }}
+                        >
+                        Parse Data File
+                        </button>
+                    </div>}
+                    {error && <div>{error}</div>}
+                  </section>
+                  <section>
+                    {<div style={{
+                      position: 'relative', 
+                      width: 'calc(100% - 2rem)'
+                      }}>
+                      {isCopied ? <span 
+                        style={{
+                          position: 'absolute', 
+                          top: '1.5rem', 
+                          right: '-1rem', 
+                          background: 'none', 
+                          border: 'none',
+                          color: '#aaa'
+                        }}>
+                          Copied</span>:<button 
+                        onClick={() => handleCopy()}
+                        style={{
+                          position: 'absolute', 
+                          top: '1.5rem', 
+                          right: 'calc(-50% - 0.5rem)', 
+                          background: 'none', 
+                          border: 'none'
+                        }}
+                      ><ContentCopyIcon style={{color: 'white', background: '#1A2948'}} />
+                      </button>}
+                      <TextareaAutosize
+                        style={{ 
+                          background: '#1A2948',
+                          fontSize: '1rem', 
+                          color: 'white',
+                          padding: '1rem',
+                          borderRadius: '1rem',
+                          width: '100%' 
+                        }} 
+                        value={JSON.stringify(paramObj, null, 2)} 
+                      />
+                    </div>}
+                  </section>
                 </div>
-                {covFile && <div style={{marginTop: '1rem'}}>
-                    <button 
-                      onClick={() => handleParseCov(covFile)}
-                      style={{
-                        background: '#2FB600', 
-                        border: 'none', 
-                        padding: '0.5rem 1rem', 
-                        borderRadius: '1rem', 
-                        color: 'white'
-                      }}
-                    >
-                    Parse Covariates File
-                    </button>
-                </div>}
-                <div style={{position: 'relative', marginTop: '1rem'}}>
-                  <label
-                      htmlFor="csvInputData"
-                      style={{ display: "block" }}
-                  >
-                      Select <b>data.csv</b> File
-                  </label>
-                  <input
-                      onChange={(e) => { handleFileChange(e, 'data.csv') }}
-                      id="csvInputData"
-                      name="file"
-                      type="File"
-                  />
-                  {dataFile && <div style={{
-                    fontSize: '2rem',
-                    position: 'absolute', 
-                    top: '-1rem', 
-                    right: '-0.5rem'
-                  }}>
-                    <CheckCircleIcon style={{color: '#2FB600', background:'white', borderRadius: '50%'}} />
-                  </div>}
-                </div>
-                {dataFile && <div style={{marginTop: '1rem'}}>
-                    <button 
-                      onClick={() => handleParseData(dataFile)}
-                      style={{
-                        background: '#2FB600',
-                        border: 'none',
-                        padding: '0.5rem 1rem',
-                        borderRadius: '1rem', 
-                        color: 'white'
-                      }}
-                    >
-                    Parse Data File
-                    </button>
-                </div>}
-                {error && <div>{error}</div>}
-                {<div style={{
-                  position: 'relative', 
-                  width: 'calc(100% - 2rem)'
-                  }}>
-                  {isCopied ? <span 
-                    style={{
-                      position: 'absolute', 
-                      top: '2rem', 
-                      right: '-1rem', 
-                      background: 'none', 
-                      border: 'none',
-                      color: '#aaa'
-                    }}>
-                      Copied</span>:<button 
-                    onClick={() => handleCopy()}
-                    style={{
-                      position: 'absolute', 
-                      top: '2rem', 
-                      right: 'calc(-50% - 0.5rem)', 
-                      background: 'none', 
-                      border: 'none'
-                    }}
-                  ><ContentCopyIcon style={{color: 'white', background: '#444'}} /></button>}
-                  <TextareaAutosize
-                    style={{ 
-                      background: '#1A2948',
-                      fontSize: '1rem', 
-                      marginTop: '1rem', 
-                      color: 'white',
-                      padding: '1rem',
-                      borderRadius: '1rem',
-                      width: '100%' 
-                    }} 
-                    value={JSON.stringify(paramObj, null, 2)} 
-                  />
-                </div>}
             </div>
         </div>
     );
