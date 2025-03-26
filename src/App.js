@@ -122,15 +122,25 @@ const App = () => {
       return boolVals.includes(str);
     }
 
-    const typeVars = (str) => {
-       if(isBoolean(str)){
+    const typeVars = (value) => {
+      if(isBoolean(value)){
           return 'bool';
-       }else if(isNumeric(str)){
-          return 'int';
-       }else{
+      } else if (isNumeric(value)) {
+          return Number.isInteger(value) ? 'int' : 'float';
+      } else if (typeof value === 'string') {
           return 'str';
-       }
-    } 
+      } else if (Array.isArray(value)) {
+          return 'list';
+      } else if (value === null) {
+          return 'NoneType';
+      } else if (typeof value === 'object') {
+          return 'dict'; // Similar to Python's dictionary
+      } else if (typeof value === 'undefined') {
+          return 'undefined';
+      } else {
+          return 'unknown';
+      }
+    };
 
     const handleCopy = () => {
       copy(JSON.stringify(paramObj, null, 2));
