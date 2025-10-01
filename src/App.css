@@ -39,7 +39,7 @@ section {
   display: flex;
   flex-direction: column;
   width: calc(800px - 4rem);
-  height: calc(525px - 1rem);
+  min-height: calc(525px - 1rem);
   margin: 2% auto;
   border-radius: 1rem;
   padding: 1rem;
