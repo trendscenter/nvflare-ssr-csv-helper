@@ -34,7 +34,7 @@ const App = () => {
   const [error, setError] = useState("");
   const [covFile, setCovFile] = useState("");
   const [dataFile, setDataFile] = useState("");
-  const [paramObj, setParamObj] = useState({ Covariates: {}, Dependents: {}, Lambda: 0});
+  const [paramObj, setParamObj] = useState({ Covariates: {}, Dependents: {}, Lambda: 0, IgnoreSubjectsWithInvalidData: false });
   const [isCopied, setIsCopied] = useState(false);
 
   const [covColumns, setCovColumns] = useState([]);
