@@ -196,7 +196,7 @@ const App = () => {
       <div className="container">
         <div className="header">
           <h2>Settings Generator</h2>
-          <small>For NVflare SSR CSV</small>
+          <small>For Single-Round Ridge Regression for FreeSurfer Data</small>
         </div>
 
         {/* Step indicator */}
