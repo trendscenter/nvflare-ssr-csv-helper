@@ -73,7 +73,7 @@ const App = () => {
   const isBooleanLiteral = (str) => {
     if (str === null || str === undefined) return false;
     const s = String(str).trim();
-    return ['true', 'false', 'True', 'False', '0', '1'].includes(s);
+    return ['TRUE', 'FALSE', 'true', 'false', 'True', 'False', '0', '1'].includes(s);
   };
 
   const classifyValue = (value) => {
